@@ -59,7 +59,7 @@ GambRuinFunc=function(A,B,p)
       A = A
       }
     Rec = c(Rec,A)
-    if(B<=0){break}
+    if(B<A){break}
   }
   Duration = length(Rec)
   return(Duration)
@@ -76,7 +76,7 @@ prob100<-length(which(Durations<=100))/5000
 prob100
 ```
 
-The probability that you have "busted" (lost all your money) by the time you have placed your one hundredth bet is 0.0586.
+The probability that you have "busted" (lost all your money) by the time you have placed your one hundredth bet is 0.1192.
 
 ####(b)
 
@@ -85,7 +85,7 @@ prob500<-length(which(Durations<=500))/5000
 prob500
 ```
 
-The probability that you have busted by the time you have placed your five hundredth bet by simulating the outcome directly is .268.
+The probability that you have busted by the time you have placed your five hundredth bet by simulating the outcome directly is 0.4768.
 
 ####(c)
 
@@ -94,7 +94,7 @@ d5000<-Durations[which(Durations<=5000)]
 mean(d5000)
 ```
 
-the mean time you go bust, given that you go bust within the first 5000 hand is 1337.568.
+the mean time you go bust, given that you go bust within the first 5000 hand is 758.8801.
 
 ####(d)
 
@@ -115,7 +115,7 @@ GambRuinFunc1=function(A,B,p)
       }
     Rec = c(Rec,A)
     if(length(Rec)==100){break}
-    if(B<=0){break}
+    if(B<A){break}
   }
   Duration = length(Rec)
   return(B)
@@ -132,7 +132,7 @@ mean(m100)
 var(m100)
 ```
 
-The mean of your bankroll after 100 hands (including busts) is 904.4356; The variance of your bankroll after 100 hands (including busts) is 2949556.
+The mean of your bankroll after 100 hands (including busts) is 895.8597; The variance of your bankroll after 100 hands (including busts) is 2841197.
 
 ####(e)
 
@@ -153,7 +153,7 @@ GambRuinFunc2=function(A,B,p)
       }
     Rec = c(Rec,A)
     if(length(Rec)==500){break}
-    if(B<=0){break}
+    if(B<A){break}
   }
   Duration = length(Rec)
   return(B)
@@ -170,7 +170,7 @@ mean(m500)
 var(m500)
 ```
 
-The mean of your bankroll after 500 hands (including busts) is 547.4091; The variance of your bankroll after 500 hands (including busts) is 16124336.
+The mean of your bankroll after 500 hands (including busts) is 573.5246; The variance of your bankroll after 500 hands (including busts) is 30074552.
 
 
 ###2
@@ -195,7 +195,7 @@ GambRuinFunc=function(A,B,p)
       A = A
       }
     Rec = c(Rec,A)
-    if(B<=0){break}
+    if(B<A){break}
   }
   Duration = length(Rec)
   return(Duration)
@@ -212,7 +212,7 @@ prob100<-length(which(Durations<=100))/5000
 prob100
 ```
 
-The probability that you have "busted" (lost all your money) by the time you have placed your one hundredth bet is 0.0956.
+The probability that you have "busted" (lost all your money) by the time you have placed your one hundredth bet is 0.173.
 
 ####(b)
 
@@ -221,7 +221,7 @@ prob500<-length(which(Durations<=500))/5000
 prob500
 ```
 
-The probability that you have busted by the time you have placed your five hundredth bet by simulating the outcome directly is 0.3992.
+The probability that you have busted by the time you have placed your five hundredth bet by simulating the outcome directly is 0.6296.
 
 ####(c)
 
@@ -230,7 +230,7 @@ d5000<-Durations[which(Durations<=5000)]
 mean(d5000)
 ```
 
-the mean time you go bust, given that you go bust within the first 5000 hand is 921.1583.
+the mean time you go bust, given that you go bust within the first 5000 hand is 505.1114.
 
 ####(d)
 
@@ -251,7 +251,7 @@ GambRuinFunc1=function(A,B,p)
       }
     Rec = c(Rec,A)
     if(length(Rec)==100){break}
-    if(B<=0){break}
+    if(B<A){break}
   }
   Duration = length(Rec)
   return(B)
@@ -268,7 +268,7 @@ mean(m100)
 var(m100)
 ```
 
-The mean of your bankroll after 100 hands (including busts) is 471.5927; The variance of your bankroll after 100 hands (including busts) is 860179.6.
+The mean of your bankroll after 100 hands (including busts) is 469.1183; The variance of your bankroll after 100 hands (including busts) is 849960.
 
 ####(e)
 
@@ -289,7 +289,7 @@ GambRuinFunc2=function(A,B,p)
       }
     Rec = c(Rec,A)
     if(length(Rec)==500){break}
-    if(B<=0){break}
+    if(B<A){break}
   }
   Duration = length(Rec)
   return(B)
@@ -306,7 +306,7 @@ mean(m500)
 var(m500)
 ```
 
-The mean of your bankroll after 500 hands (including busts) is 6.192924; The variance of your bankroll after 500 hands (including busts) is 18823.6.
+The mean of your bankroll after 500 hands (including busts) is 32.88478; The variance of your bankroll after 500 hands (including busts) is 95786.5.
 
 ###3
 
@@ -333,7 +333,7 @@ MCFunc=function(A,B,p)
     }
     k=k+1
     if(k==100000){break}
-    if(B<=0){break}
+    if(B<A){break}
   }
   return(B)
 }
@@ -394,7 +394,7 @@ MCFunc1=function(A,B,p,step)
     }
     k=k+1
     if(k==100000){break}
-    if(B<=0){break}
+    if(B<A){break}
   }
   return(B)
 }
@@ -458,4 +458,4 @@ var(bs2)
 var(bs1)/var(bs2)
 ```
 
-The variance for game1 is 10264762076, the variance for game1 is 2.469009e+13. The proportion between the variance of two games' sizes of return (0.0004157441) shows that the first game (Change the starting probability) has the smaller variance in returns.
+The variance for game1 is 10785467594, the variance for game1 is 2.469009e+13. The proportion between the variance of two games' sizes of return (0.0004368338) shows that the first game (Change the starting probability) has the smaller variance in returns.
